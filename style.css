@@ -225,9 +225,9 @@ body {
 
 #addMovie,
 #logOut {
-   position: relative;
-    top: 140px;
-    float: left;
+   position: absolute;
+    top: 40px;
+    left: 160px;
     background-color: rgba(255, 205, 82, 0.6);
     color: black;
     font-size: 20px;
@@ -240,7 +240,7 @@ body {
 }
 
 #logOut {
-
+    top: 100px;
 }
 
 #addMovie:hover,
@@ -267,7 +267,7 @@ body {
 #allMovies h1 {
     color: rgb(255, 205, 82);
     text-align: center;
-    margin-top: 100px;
+    margin-top: 160px;
 }
 
 #movieList {
