@@ -51,9 +51,9 @@ createMovieBtn.onclick = () => {
         return alert("This movie already exists");
     }
 
-    const urlValidation = /^(https?:\/\/[^\s/$.?#].[^\s]*)\.(jpeg|jpg|png)$/i;
-    if (!urlValidation.test(movieImageInput.value.trim())) {
-        return alert("Please enter a valid image URL ending with .jpeg, .jpg, or .png");
+    const urlPattern = /^(https?:\/\/[^\s/$.?#].[^\s]*)\.(jpeg|jpg|png)(\?.*)?$/i;
+    if (!urlPattern.test(movieImageInput.value.trim())) {
+        return alert("Please enter a valid image URL with .jpeg, .jpg, or .png");
     }
 
     if (movieTitleInput.value && movieImageInput.value && seatsTotal.value) {
