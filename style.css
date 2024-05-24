@@ -286,6 +286,7 @@ body {
     font-size: 22px;
     width: 210px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .movie img {
@@ -376,7 +377,7 @@ body {
 .reservationWindow img {
     margin: 15px;
     border-radius: 20px;
-    height: 750px;
+    height: 550px;
 }
 
 .chair {

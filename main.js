@@ -41,6 +41,16 @@ goToMoviesListBtn.onclick = () => {
 }
 
 createMovieBtn.onclick = () => {
+    if (seatsTotal.value < 10 || seatsTotal.value > 30) {
+       return alert("You can choose  10 to 30 seats")
+    }
+    const existingMovies = JSON.parse(localStorage.getItem("movies")) || [];
+    // Check if a movie with the same title already exists
+    const movieTitleExists = existingMovies.some(movie => movie.title === movieTitleInput.value.trim());
+
+    if (movieTitleExists) {
+        return alert("This movie already exists");
+    }
     if (movieTitleInput.value && movieImageInput.value && seatsTotal.value) {
         const totalSeats = parseInt(seatsTotal.value);
         const newMovie = {
