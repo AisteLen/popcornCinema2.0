@@ -1,6 +1,7 @@
 import { allMoviesForAdmin, toggleDeleteButtons, updateAdminControls, saveReservations, updateSeatsInfo, resetAdminState } from './admin.js';
 
 document.addEventListener("DOMContentLoaded", function() {
+    initializeLocalStorage();
     loadMoviesFromLocalStorage();
     toggleDeleteButtons();
 });
@@ -170,7 +171,7 @@ movieList.addEventListener("click", function(event) {
                 chair.classList.add("reserved");
             });
             saveReservations(movieTitle, seatsContainer);
-            updateSeatsInfo(movieTitle); // This might be redundant now, but ensures the info is updated
+            updateSeatsInfo(movieTitle);
         });
 
         const cancelReservation = reservationWindow.querySelector(".cancelReservation");
@@ -179,10 +180,19 @@ movieList.addEventListener("click", function(event) {
                 chair.classList.remove("reserved", "toCancelReservation");
             });
             saveReservations(movieTitle, seatsContainer);
-            updateSeatsInfo(movieTitle); // This might be redundant now, but ensures the info is updated
+            updateSeatsInfo(movieTitle);
         });
 
         document.body.appendChild(reservationWindow);
         updateAdminControls();
     }
 });
+
+function initializeLocalStorage() {
+    if (!localStorage.getItem("movies")) {
+        localStorage.setItem("movies", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("reservations")) {
+        localStorage.setItem("reservations", JSON.stringify({}));
+    }
+}
