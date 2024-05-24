@@ -42,7 +42,7 @@ goToMoviesListBtn.onclick = () => {
 
 createMovieBtn.onclick = () => {
     if (seatsTotal.value < 10 || seatsTotal.value > 30) {
-       return alert("You can choose  10 to 30 seats")
+        return alert("You can choose 10 to 30 seats")
     }
     const existingMovies = JSON.parse(localStorage.getItem("movies")) || [];
     // Check if a movie with the same title already exists
@@ -96,44 +96,14 @@ regularUser.onclick = () => {
 
 movieList.addEventListener("click", function(event) {
     if (event.target.classList.contains("deleteMovie")) {
-        event.target.closest(".movie").remove();
+        const movieCard = event.target.closest(".movie");
+        const movieTitle = movieCard.dataset.title;
+        movieCard.remove();
         saveMoviesToLocalStorage();
-    }
-});
-
-function loadMoviesFromLocalStorage() {
-    const movies = JSON.parse(localStorage.getItem("movies")) || [];
-    movies.forEach(movie => {
-        const newMovieCard = document.createElement("div");
-        const availableSeats = movie.seats - movie.reservedSeats.length;
-        newMovieCard.className = "movie";
-        newMovieCard.innerHTML = `
-        <img src="${movie.image}" alt="${movie.title}">
-        <div><strong>Title:</strong> ${movie.title}</div>
-        <div><strong>Seats available:</strong> ${availableSeats} / ${movie.seats}</div>
-        <button class="deleteMovie d-flex">Delete</button>
-        `;
-        newMovieCard.dataset.title = movie.title;
-        movieList.appendChild(newMovieCard);
-    });
-}
-
-function saveMoviesToLocalStorage() {
-    const movies = [];
-    const movieElements = document.querySelectorAll(".movie");
-    movieElements.forEach(movieElement => {
-        const movieTitle = movieElement.querySelector("div strong").nextSibling.textContent.trim();
-        const movieImage = movieElement.querySelector("img").src;
-        const seatsInfo = movieElement.querySelector("div:nth-of-type(2)").textContent.split(": ")[1].split(" / ");
-        const totalSeats = parseInt(seatsInfo[1].trim());
-        const reservedSeats = JSON.parse(localStorage.getItem("reservations"))[movieTitle] || [];
-        movies.push({ title: movieTitle, image: movieImage, seats: totalSeats, reservedSeats });
-    });
-    localStorage.setItem("movies", JSON.stringify(movies));
-}
-
-movieList.addEventListener("click", function(event) {
-    if (event.target.closest(".movie") && !event.target.classList.contains("deleteMovie")) {
+        const reservations = JSON.parse(localStorage.getItem("reservations"));
+        delete reservations[movieTitle];
+        localStorage.setItem("reservations", JSON.stringify(reservations));
+    } else if (event.target.closest(".movie") && !event.target.classList.contains("deleteMovie")) {
         const movieElement = event.target.closest(".movie");
         const movieTitle = movieElement.dataset.title;
         const movie = JSON.parse(localStorage.getItem("movies")).find(m => m.title === movieTitle);
@@ -197,6 +167,37 @@ movieList.addEventListener("click", function(event) {
         updateAdminControls();
     }
 });
+
+function loadMoviesFromLocalStorage() {
+    const movies = JSON.parse(localStorage.getItem("movies")) || [];
+    movies.forEach(movie => {
+        const newMovieCard = document.createElement("div");
+        const availableSeats = movie.seats - movie.reservedSeats.length;
+        newMovieCard.className = "movie";
+        newMovieCard.innerHTML = `
+        <img src="${movie.image}" alt="${movie.title}">
+        <div><strong>Title:</strong> ${movie.title}</div>
+        <div class="seats-info"><strong>Seats available:</strong> ${availableSeats} / ${movie.seats}</div>
+        <button class="deleteMovie d-flex">Delete</button>
+        `;
+        newMovieCard.dataset.title = movie.title;
+        movieList.appendChild(newMovieCard);
+    });
+}
+
+function saveMoviesToLocalStorage() {
+    const movies = [];
+    const movieElements = document.querySelectorAll(".movie");
+    movieElements.forEach(movieElement => {
+        const movieTitle = movieElement.dataset.title;
+        const movieImage = movieElement.querySelector("img").src;
+        const seatsInfo = movieElement.querySelector(".seats-info").textContent.split(": ")[1].split(" / ");
+        const totalSeats = parseInt(seatsInfo[1].trim());
+        const reservedSeats = JSON.parse(localStorage.getItem("reservations"))[movieTitle] || [];
+        movies.push({ title: movieTitle, image: movieImage, seats: totalSeats, reservedSeats });
+    });
+    localStorage.setItem("movies", JSON.stringify(movies));
+}
 
 function initializeLocalStorage() {
     if (!localStorage.getItem("movies")) {
