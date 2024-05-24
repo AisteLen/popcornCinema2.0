@@ -1,0 +1,417 @@
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.direction-col {
+    flex-direction: column;
+}
+
+.j-end {
+    justify-content: end;
+}
+
+.j-center {
+    justify-content: center;
+}
+
+.j-between {
+    justify-content: space-between;
+}
+
+.j-around {
+    justify-content: space-around;
+}
+
+.a-center {
+    align-items: center;
+}
+
+.a-end {
+    align-items: end;
+}
+
+.a-start {
+    align-items: start;
+}
+
+.h500 {
+    height: 500px;
+}
+
+.h100 {
+    height: 100px;
+}
+
+.h200 {
+    height: 200px;
+}
+
+.h350 {
+    height: 350px;
+}
+
+.w300 {
+    width: 300px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.gap30 {
+    gap: 30px;
+}
+
+.flex04 {
+    flex: 0.4;
+}
+
+.flex07 {
+    flex: 0.7;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex2 {
+    flex: 2;
+}
+
+.flex3 {
+    flex: 3;
+}
+
+.flex4 {
+    flex: 4;
+}
+
+.flex6 {
+    flex: 6;
+}
+
+.order1 {
+    order: 1;
+}
+
+.order2 {
+    order: 2;
+}
+
+.order3 {
+    order: 3;
+}
+
+.order4 {
+    order: 4;
+}
+
+.a-self {
+    align-self: center;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.d-none {
+    display: none;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.col-reverse {
+    flex-direction: column-reverse;
+}
+
+/*     */
+
+body {
+    background-image: url("https://www.chicagocanvas.com/wp-content/uploads/2019/12/rob-laughter-WW1jsInXgwM-unsplash-scaled.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: "EB Garamond", serif;
+}
+
+.logo {
+    margin: 10px;
+    background-color: rgba(126, 88, 28, 0.5);
+    width: 130px;
+    border-radius: 50%;
+    color: rgb(255, 205, 82);
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo img {
+    border-radius: 50%;
+    margin: 10px;
+}
+
+/* LOGIN LOBBY */
+
+#loginLobby {
+    background-color: rgba(234,0,24,0.62);
+    width: 700px;
+    height: 500px;
+    margin: 200px auto;
+    border-radius: 20px;
+}
+
+#regularUser {
+    background-image: url("https://us.123rf.com/450wm/worldofvector/worldofvector1707/worldofvector170700156/82895046-cat-eating-popcorn-in-movie-theater-cute-cartoon-character-film-show-cinema-background-kitten.jpg?ver=6");
+    background-size: cover;
+    background-position: center;
+    margin: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#admin {
+    background-image: url("https://i.pinimg.com/originals/81/04/9e/81049eebcd9926df1dd9e86d10bb69d3.png");
+    background-size: cover;
+    background-position: bottom;
+    margin: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#regularUser:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://us.123rf.com/450wm/worldofvector/worldofvector1707/worldofvector170700156/82895046-cat-eating-popcorn-in-movie-theater-cute-cartoon-character-film-show-cinema-background-kitten.jpg?ver=6");
+}
+
+#admin:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/81/04/9e/81049eebcd9926df1dd9e86d10bb69d3.png");
+}
+
+/* ALL MOVIES LIST */
+
+#addMovie,
+#logOut {
+   position: relative;
+    top: 140px;
+    float: left;
+    background-color: rgba(255, 205, 82, 0.6);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#logOut {
+
+}
+
+#addMovie:hover,
+.deleteMovie:hover,
+#logOut:hover {
+    background-color: rgb(255, 205, 82);
+}
+
+.deleteMovie {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: rgba(255, 205, 82, 0.6);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#allMovies h1 {
+    color: rgb(255, 205, 82);
+    text-align: center;
+    margin-top: 100px;
+}
+
+#movieList {
+    background-color: rgba(234,0,24,0.62);
+    width: 1040px;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.movie {
+    margin: 10px;
+    padding: 15px;
+    background-color: rgba(0,0,0,0.52);
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    width: 210px;
+    cursor: pointer;
+}
+
+.movie img {
+    border-radius: 20px;
+    height: 250px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.movie:hover {
+    background-color: rgba(0,0,0,0.72);
+    color: rgb(255, 205, 82);
+}
+
+/* ADDING NEW MOVIES */
+
+#newMovie {
+    padding: 20px;
+    flex-direction: column;
+    top: 150px;
+    position: relative;
+    background-color: rgba(234,0,24,0.62);
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+#newMovie input {
+    height: 50px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+#createMovie,
+#goToMoviesList,
+.reserveSeat, .goBack,
+.cancelReservation {
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: rgba(255, 205, 82, 0.6);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#createMovie:hover,
+#goToMoviesList:hover,
+.reserveSeat:hover,
+.goBack:hover,
+.cancelReservation:hover {
+    background-color: rgb(255, 205, 82);
+}
+
+/* RESERVATION WINDOW */
+
+.reservationWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    width: 100%;
+    height: 110%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.seats {
+    padding: 20px;
+    position: relative;
+    background-color: rgba(59,48,125, 0.5);
+    max-width: 600px;
+    min-height: 400px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.reservationWindow img {
+    margin: 15px;
+    border-radius: 20px;
+    height: 750px;
+}
+
+.chair {
+    background-image: url("https://png.pngtree.com/png-vector/20220526/ourmid/pngtree-cinema-red-comfortable-seat-for-watching-movies-png-image_4741827.png");
+    background-size: cover;
+    margin: 15px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.2s;
+    border: 4px solid rgba(255, 205, 82, 0);
+}
+
+.chair:hover,
+.active {
+    border: 4px solid rgb(255, 205, 82);
+}
+
+
+.infoSide {
+    margin: 20px;
+}
+
+.reserveSeat, .goBack,
+.cancelReservation {
+    max-width: 640px;
+}
+
+.reserved {
+    border: 4px solid rgba(234,0,24,0.62);
+}
+
+.toCancelReservation {
+    border: 4px solid rgba(8, 152, 125,0.62);
+}
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popcorn Cinema</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script type="module" src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<!--LOGO-->
+<div class="logo d-flex direction-col j-center a-center">
+    <img src="https://previews.123rf.com/images/rukach/rukach1807/rukach180700325/114709784-popcorn-film-strip-border-red-yellow-box-cinema-movie-night-icon-in-flat-design-style-stock-vector.jpg"
+         width="100" alt="logo">
+    <div>Popcorn Cinema</div>
+</div>
+<!--LOGIN LOBBY-->
+<div class="d-flex" id="loginLobby">
+    <div id="regularUser" class="d-flex flex1 j-center">Regular user</div>
+    <div id="admin" class="d-flex flex1 j-center">Admin</div>
+</div>
+<!--ALL MOVIES-->
+<div class="d-none" id="allMovies">
+    <button id="logOut">Logout</button>
+    <h1>All movies: </h1>
+
+    <button class="d-none" id="addMovie">+Add Movie</button>
+
+    <div id="movieList" class="d-flex flex-wrap"></div>
+</div>
+
+<!-- ADD NEW MOVIE -->
+<div class="d-none" id="newMovie">
+    <h1 class="text-center">New movie</h1>
+    <input id="movieTitle" type="text" placeholder="Movie title"><br>
+    <input id="movieImage" type="text" placeholder="Movie poster"><br>
+    <input id="seatsTotal" type="number" placeholder="Seats total"><br>
+    <button id="createMovie">Create a movie</button>
+    <button id="goToMoviesList">Go Back</button>
+</div>
+
+</body>
+</html>
