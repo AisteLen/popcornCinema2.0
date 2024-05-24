@@ -1,4 +1,4 @@
-let isAdmin = false;
+export let isAdmin = false;
 
 export function allMoviesForAdmin() {
     const loginLobby = document.getElementById("loginLobby");
@@ -60,6 +60,19 @@ export function updateAdminControls() {
     });
 }
 
+
+export function resetAdminState() {
+    isAdmin = false;
+    const deleteMovieButtons = document.querySelectorAll(".deleteMovie");
+    deleteMovieButtons.forEach(btn => {
+        btn.style.display = "none";
+    });
+    const cancelReservationButtons = document.querySelectorAll(".cancelReservation");
+    cancelReservationButtons.forEach(btn => {
+        btn.style.display = "none";
+    });
+}
+
 export function saveReservations(movieTitle, seatsContainer) {
     const reservedSeats = [];
     seatsContainer.querySelectorAll(".chair").forEach((chair, index) => {
@@ -95,9 +108,4 @@ export function updateSeatsInfo(movieTitle) {
             }
         }
     }
-}
-
-export function resetAdminState() {
-    isAdmin = false;
-    toggleDeleteButtons();
 }
